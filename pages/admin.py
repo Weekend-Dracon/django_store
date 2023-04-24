@@ -14,6 +14,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class SubCategoryAdmin(admin.ModelAdmin):
     list_display = ("pk", "title", "category")
     list_display_links = ("pk", "title")
+    prepopulated_fields = {"slug": ("title",)}
 
 
 class ProductImageInline(admin.TabularInline):
@@ -24,6 +25,7 @@ class ProductImageInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ("pk", "title", "price", "views", "quantity", "category")
     list_display_links = ("pk", "title")
+    prepopulated_fields = {"slug": ("title",)}
     readonly_fields = ("views",)
     list_filter = ("category",)
     inlines = [
