@@ -61,6 +61,12 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("product_detail", kwargs={"slug": self.slug})
 
+    def get_first_photo(self):
+        photo = self.productimage_set.all().first()
+        if photo is not None:
+            return photo.photo.url
+        return "https://www.teachrussian.org/api/AssetApi/imgsrc?pId=438859b0-ba27-48e1-82ec-ab3447d124e0&maxW=1080&maxH=1080"
+
     def get_class_by_type(self):
         TYPES_CLASSES = {
             "new": "info",
