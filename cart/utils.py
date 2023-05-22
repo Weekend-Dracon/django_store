@@ -49,7 +49,7 @@ class CartFormAuthenticatedUser:
         product.save()
         order_product.save()
 
-        if order_product <= 0:
+        if order_product.quantity <= 0:
             order_product.delete()
 
     def clear(self):

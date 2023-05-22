@@ -62,6 +62,9 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("product_detail", kwargs={"slug": self.slug})
 
+    def add_to_cart(self):
+        return reverse("to_cart", kwargs={"product_id": self.pk, "action": "add"})
+
     def get_first_photo(self):
         photo = self.productimage_set.all().first()
         if photo is not None:

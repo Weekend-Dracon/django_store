@@ -136,3 +136,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CART_SESSION_ID = "cart"
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 28
+
+STRIPE_SECRET_KEY = ""
